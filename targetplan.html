@@ -1500,27 +1500,3 @@
 
 </body>
 </html>
-```
-
-**Key Changes:**
-
-1.  **Library:** Replaced ECharts with GoJS library (`unpkg.com/gojs@2.3.18/release/go.js`).
-2.  **Disclaimer:** Added a prominent note below the chart emphasizing the GoJS license requirement for deployment without watermarks.
-3.  **HTML Container:** Changed the chart container ID to `gojs-org-chart` and the wrapper to `gojs-org-chart-container`.
-4.  **JavaScript:**
-    * Removed all ECharts initialization code.
-    * Added GoJS initialization code:
-        * Created a `go.Diagram` linked to the container div.
-        * Defined a `go.TreeLayout` for standard top-down org chart arrangement with adjusted spacing.
-        * Defined a `nodeTemplate` using GoJS panels and shapes:
-            * A main `Rectangle` shape whose `fill` and `stroke` are bound to the node's `role` data using the `getNodeStyle` helper function (updated for GoJS color properties).
-            * A `Vertical` panel inside for text.
-            * A `Horizontal` panel for the icon (bound using `getNodeStyle`) and the name (`TextBlock` bound to `name` and text color).
-            * A separate `TextBlock` for the title (bound to `title` and text color).
-            * Added a standard `"TreeExpanderButton"` for collapsing/expanding.
-        * Defined a simple `linkTemplate` for orthogonal connector lines.
-        * Created a `go.TreeModel` and assigned the `nodesData` (now using `key` and `parent` properties).
-        * Enabled standard interactivity like zooming and panning.
-5.  **CSS:** Removed ECharts-specific CSS. Added basic styles for the GoJS container. Most node styling is now handled within the GoJS template definitions.
-
-This GoJS version should provide a well-laid-out, interactive org chart. Remember to obtain a license if you intend to use this beyond evaluation or on a public/commercial site to remove the watermar
