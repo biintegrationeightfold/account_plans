@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <script src="https://unpkg.com/gojs@2.3.18/release/go.js"></script>
+
     <style>
         /* Base styles */
         body {
@@ -252,33 +253,33 @@
         .swot-item ul { margin-top: 0.5rem; padding-left: 1.25rem; }
         .swot-item li { margin-bottom: 0.375rem; }
 
-        /* --- ECharts Container Styling --- */
-        #echarts-org-chart-container {
+        /* --- GoJS Container Styling --- */
+        #gojs-org-chart-container {
             margin-top: 1.5rem;
-            margin-bottom: 0.5rem; /* Reduced bottom margin */
-            padding: 1rem;
-            background-color: #f8fafc; /* Match body background */
+            margin-bottom: 0.5rem;
+            padding: 0; /* GoJS handles internal padding */
+            background-color: #f8fafc;
             border-radius: 0.5rem;
-            /* border: 1px solid #e2e8f0; /* Optional border */
+            border: 1px solid #e2e8f0; /* Add border */
+            overflow: hidden; /* Prevent scrollbars if chart fits */
         }
-        #echarts-org-chart {
+        #gojs-org-chart {
             width: 100%;
-            height: 650px; /* Reduced height */
-            min-height: 500px;
+            height: 700px; /* Adjust height as needed */
         }
-        /* --- End ECharts Container Styling --- */
+        /* --- End GoJS Container Styling --- */
 
         /* Chart Legend Styling */
         .chart-legend {
-            margin-top: 0.5rem; /* Space above legend */
-            margin-bottom: 1.5rem; /* Space below legend */
+            margin-top: 0.75rem; /* Reduced space above legend */
+            margin-bottom: 1.5rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem 1rem; /* Vertical and horizontal gap */
-            font-size: 0.75rem; /* 12px */
-            color: #475569; /* Slate 600 */
+            gap: 0.5rem 1rem;
+            font-size: 0.75rem;
+            color: #475569;
         }
         .legend-item {
             display: flex;
@@ -286,12 +287,15 @@
         }
         .legend-color-box {
             display: inline-block;
-            width: 0.75rem; /* 12px */
-            height: 0.75rem; /* 12px */
-            /* Use square for rectangle legend */
-            /* border-radius: 9999px; /* Circle */
-            margin-right: 0.375rem; /* 6px */
+            width: 0.75rem;
+            height: 0.75rem;
+            margin-right: 0.375rem;
             border-width: 1px;
+        }
+        .legend-icon {
+             font-size: 0.8rem;
+             margin-right: 0.25rem;
+             line-height: 1;
         }
 
 
@@ -782,27 +786,25 @@
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Key Stakeholder Org Chart (Interactive)</span>
-                <div id="echarts-org-chart-container">
-                    <div id="echarts-org-chart"></div>
-                </div>
+                <div id="gojs-org-chart-container"> <div id="gojs-org-chart" style="background-color: #f8fafc;"></div> </div>
                 <div class="chart-legend">
                     <div class="legend-item">
-                        <span class="legend-color-box" style="background-color: #fee2e2; border-color: #dc2626;"></span> Decision Maker
+                        <span class="legend-color-box" style="background-color: #fee2e2; border-color: #dc2626;"></span><span class="legend-icon">👑</span> Decision Maker
                     </div>
                     <div class="legend-item">
-                        <span class="legend-color-box" style="background-color: #d1fae5; border-color: #059669;"></span> Champion
+                        <span class="legend-color-box" style="background-color: #d1fae5; border-color: #059669;"></span><span class="legend-icon">🛡️</span> Champion
                     </div>
                     <div class="legend-item">
-                        <span class="legend-color-box" style="background-color: #fef3c7; border-color: #d97706;"></span> Detractor
+                        <span class="legend-color-box" style="background-color: #fef3c7; border-color: #d97706;"></span><span class="legend-icon">⚠️</span> Detractor
                     </div>
                     <div class="legend-item">
-                        <span class="legend-color-box" style="background-color: #dbeafe; border-color: #2563eb;"></span> Influencer
+                        <span class="legend-color-box" style="background-color: #dbeafe; border-color: #2563eb;"></span><span class="legend-icon">🧠</span> Influencer
                     </div>
                      <div class="legend-item">
-                        <span class="legend-color-box" style="background-color: #ede9fe; border-color: #a78bfa;"></span> Other/Default
+                        <span class="legend-color-box" style="background-color: #f1f5f9; border-color: #94a3b8;"></span><span class="legend-icon">👤</span> Other/Default
                     </div>
                 </div>
-                 <p class="text-xs text-slate-500 italic mt-1">Note: Click nodes to expand/collapse. Use mouse wheel or touch to zoom/pan. Colors indicate hypothesized roles. Specific VP names/reporting lines require validation.</p>
+                 <p class="text-xs text-slate-500 italic mt-1">Note: Click nodes to expand/collapse. Use mouse wheel or touch to zoom/pan. Colors/icons indicate hypothesized roles. Specific VP names/reporting lines require validation. <strong class="text-red-600">GoJS requires a license for deployment without watermarks.</strong></p>
             </div>
 
             <div class="persona-card">
@@ -1331,12 +1333,19 @@
     </footer>
 
     <script type="text/javascript">
-        // --- ECharts Initialization ---
+        // --- GoJS Initialization ---
         document.addEventListener('DOMContentLoaded', function () {
-            var chartDom = document.getElementById('echarts-org-chart');
+            // IMPORTANT: GoJS is a commercial library.
+            // You must purchase a license for deployment in production environments.
+            // Without a license, the chart will display watermarks.
+            // See: https://gojs.net/latest/license.html
+            // You can replace "YOUR LICENSE KEY" below if you have one.
+            // go.licenseKey = "YOUR LICENSE KEY"; // Uncomment and insert key if purchased
+
+            var chartDom = document.getElementById('gojs-org-chart');
             if (!chartDom) {
-                console.error('ECharts container not found!');
-                 var containerWrapper = document.getElementById('echarts-org-chart-container');
+                console.error('GoJS container not found!');
+                 var containerWrapper = document.getElementById('gojs-org-chart-container');
                  if(containerWrapper) {
                      containerWrapper.innerHTML = '<p class="text-red-600 font-semibold p-4">Error: Chart container element not found.</p>';
                  }
@@ -1344,119 +1353,174 @@
             }
 
             try {
-                var myChart = echarts.init(chartDom);
-                var option;
+                const $ = go.GraphObject.make; // Alias for convenience
+
+                const myDiagram = $(go.Diagram, chartDom, {
+                    // Layout settings
+                    layout: $(go.TreeLayout, {
+                        angle: 90, // 90 degrees for top-down layout
+                        layerSpacing: 50, // Vertical distance between layers
+                        nodeSpacing: 20, // Horizontal distance between nodes in the same layer
+                        arrangement: go.TreeLayout.ArrangementFixedRoots // How to arrange nodes
+                    }),
+                    // Interactivity settings
+                    initialContentAlignment: go.Spot.Center, // Center the chart initially
+                    "undoManager.isEnabled": true, // Enable undo/redo
+                    "toolManager.mouseWheelBehavior": go.ToolManager.WheelZoom, // Zoom with mouse wheel
+                    allowZoom: true,
+                    allowHorizontalScroll: true,
+                    allowVerticalScroll: true,
+                    allowMove: true, // Allow panning
+                    // Model settings
+                    model: $(go.TreeModel, {
+                        nodeKeyProperty: "key", // Specify the property for node keys
+                        nodeParentKeyProperty: "parent" // Specify the property for parent references
+                    })
+                });
 
                 // --- Data Preparation ---
                 const nodesData = [
-                     { id: 'CEO', pid: null, name: 'Brian Cornell', title: 'CEO & Chairman', tags: ['decisionMaker'] },
-                     { id: 'COO', pid: 'CEO', name: 'Michael Fiddelke', title: 'EVP & COO', tags: ['decisionMaker'] },
-                     { id: 'CFO', pid: 'CEO', name: 'Jim Lee', title: 'EVP & CFO', tags: ['decisionMaker'] },
-                     { id: 'CCO', pid: 'CEO', name: 'Rick Gomez', title: 'EVP & CCO', tags: ['decisionMaker'] },
-                     { id: 'CSGO', pid: 'CEO', name: 'Christina Hennington', title: 'EVP & CSGO', tags: ['decisionMaker'] },
-                     { id: 'CHRO', pid: 'CEO', name: 'Melissa Kremer', title: 'EVP & CHRO', tags: ['decisionMaker'] },
-                     { id: 'CLCO', pid: 'CEO', name: 'Amy Tu', title: 'EVP & CLCO', tags: ['decisionMaker'] },
-                     { id: 'CIO', pid: 'CEO', name: 'Brett Craig', title: 'EVP & CIO', tags: ['decisionMaker'] },
-                     { id: 'CCAO', pid: 'CEO', name: 'Matthew Zabel', title: 'EVP & CCAO', tags: ['influencer'] },
-                     { id: 'SVP_Stores', pid: 'COO', name: 'Mark Schindele', title: 'EVP & Chief Stores Officer', tags: ['influencer'] },
-                     { id: 'SVP_SupplyChain', pid: 'COO', name: 'Gretchen McCarthy', title: 'EVP & Chief Supply Chain Officer', tags: ['influencer'] },
-                     { id: 'CMerchO_AHH', pid: 'CCO', name: 'Jill Sando', title: 'EVP & CMerchO AHH', tags: ['champion'] },
-                     { id: 'CMerchO_FEB', pid: 'CCO', name: 'Lisa Roath', title: 'EVP & CMerchO FEB', tags: ['champion'] },
-                     { id: 'CMO', pid: 'CCO', name: 'Lisa Roath', title: 'EVP & CMO', tags: ['influencer'] },
-                     { id: 'CGXO', pid: 'CCO', name: 'Cara Sylvester', title: 'EVP & CGXO', tags: ['influencer'] },
-                     { id: 'VP_TA', pid: 'CHRO', name: 'VP Talent Acquisition', title: 'Kimbrough / Julkowski?', tags: ['champion'] },
-                     { id: 'VP_TM', pid: 'CHRO', name: 'VP Talent Management', title: 'Matchen / Lee?', tags: ['champion'] },
-                     { id: 'VP_HRTech', pid: 'CHRO', name: 'VP HR Technology', title: 'Kerkvliet?', tags: ['detractor'] },
-                     { id: 'VP_DEI', pid: 'CHRO', name: 'Kiera Fernandez', title: 'EVP & Chief Community Impact & Equity Officer', tags: ['champion'] },
-                     { id: 'VP_Rewards', pid: 'CHRO', name: 'VP Total Rewards', title: 'Richardson?', tags: ['influencer'] },
-                     { id: 'SVP_HRField', pid: 'CHRO', name: 'SVP HR Field & Ops', title: 'Emily Hebert?', tags: ['influencer'] },
-                     { id: 'CISO', pid: 'CIO', name: 'Jodie Kautt', title: 'SVP Cybersecurity', tags: ['detractor'] },
-                     { id: 'VP_Infra', pid: 'CIO', name: 'VP Infrastructure', title: 'Ostergaard / O\'kane / Choudhry?', tags: ['influencer'] },
-                     { id: 'CDPO', pid: 'CIO', name: 'Prat Vemana', title: 'EVP & Chief Digital & Product Officer', tags: ['champion'] },
+                     { key: 'CEO', name: 'Brian Cornell', title: 'CEO & Chairman', role: 'decisionMaker' },
+                     { key: 'COO', parent: 'CEO', name: 'Michael Fiddelke', title: 'EVP & COO', role: 'decisionMaker' },
+                     { key: 'CFO', parent: 'CEO', name: 'Jim Lee', title: 'EVP & CFO', role: 'decisionMaker' },
+                     { key: 'CCO', parent: 'CEO', name: 'Rick Gomez', title: 'EVP & CCO', role: 'decisionMaker' },
+                     { key: 'CSGO', parent: 'CEO', name: 'Christina Hennington', title: 'EVP & CSGO', role: 'decisionMaker' },
+                     { key: 'CHRO', parent: 'CEO', name: 'Melissa Kremer', title: 'EVP & CHRO', role: 'decisionMaker' },
+                     { key: 'CLCO', parent: 'CEO', name: 'Amy Tu', title: 'EVP & CLCO', role: 'decisionMaker' },
+                     { key: 'CIO', parent: 'CEO', name: 'Brett Craig', title: 'EVP & CIO', role: 'decisionMaker' },
+                     { key: 'CCAO', parent: 'CEO', name: 'Matthew Zabel', title: 'EVP & CCAO', role: 'influencer' },
+                     { key: 'SVP_Stores', parent: 'COO', name: 'Mark Schindele', title: 'EVP & Chief Stores Officer', role: 'influencer' },
+                     { key: 'SVP_SupplyChain', parent: 'COO', name: 'Gretchen McCarthy', title: 'EVP & Chief Supply Chain Officer', role: 'influencer' },
+                     { key: 'CMerchO_AHH', parent: 'CCO', name: 'Jill Sando', title: 'EVP & CMerchO AHH', role: 'champion' },
+                     { key: 'CMerchO_FEB', parent: 'CCO', name: 'Lisa Roath', title: 'EVP & CMerchO FEB', role: 'champion' },
+                     { key: 'CMO', parent: 'CCO', name: 'Lisa Roath', title: 'EVP & CMO', role: 'influencer' },
+                     { key: 'CGXO', parent: 'CCO', name: 'Cara Sylvester', title: 'EVP & CGXO', role: 'influencer' },
+                     { key: 'VP_TA', parent: 'CHRO', name: 'VP Talent Acquisition', title: 'Kimbrough / Julkowski?', role: 'champion' },
+                     { key: 'VP_TM', parent: 'CHRO', name: 'VP Talent Management', title: 'Matchen / Lee?', role: 'champion' },
+                     { key: 'VP_HRTech', parent: 'CHRO', name: 'VP HR Technology', title: 'Kerkvliet?', role: 'detractor' },
+                     { key: 'VP_DEI', parent: 'CHRO', name: 'Kiera Fernandez', title: 'EVP & Chief Community Impact & Equity Officer', role: 'champion' },
+                     { key: 'VP_Rewards', parent: 'CHRO', name: 'VP Total Rewards', title: 'Richardson?', role: 'influencer' },
+                     { key: 'SVP_HRField', parent: 'CHRO', name: 'SVP HR Field & Ops', title: 'Emily Hebert?', role: 'influencer' },
+                     { key: 'CISO', parent: 'CIO', name: 'Jodie Kautt', title: 'SVP Cybersecurity', role: 'detractor' },
+                     { key: 'VP_Infra', parent: 'CIO', name: 'VP Infrastructure', title: 'Ostergaard / O\'kane / Choudhry?', role: 'influencer' },
+                     { key: 'CDPO', parent: 'CIO', name: 'Prat Vemana', title: 'EVP & Chief Digital & Product Officer', role: 'champion' },
                 ];
 
-                function getNodeStyle(tags) {
-                    let style = { color: '#ede9fe', borderColor: '#a78bfa', labelColor: '#5b21b6' }; // Default: Violet
-                    if (!tags || tags.length === 0) return style;
-                    if (tags.includes('decisionMaker')) style = { color: '#fee2e2', borderColor: '#dc2626', labelColor: '#991b1b' }; // Red
-                    else if (tags.includes('champion')) style = { color: '#d1fae5', borderColor: '#059669', labelColor: '#065f46' }; // Green
-                    else if (tags.includes('detractor')) style = { color: '#fef3c7', borderColor: '#d97706', labelColor: '#92400e' }; // Amber
-                    else if (tags.includes('influencer')) style = { color: '#dbeafe', borderColor: '#2563eb', labelColor: '#1e40af' }; // Blue
+                // Helper function to get style properties based on role
+                function getNodeStyle(role) {
+                    let style = { fill: '#f1f5f9', stroke: '#94a3b8', textColor: '#475569', icon: '👤' }; // Default: Gray
+                    switch (role) {
+                        case 'decisionMaker': style = { fill: '#fee2e2', stroke: '#dc2626', textColor: '#991b1b', icon: '👑' }; break; // Red
+                        case 'champion':      style = { fill: '#d1fae5', stroke: '#059669', textColor: '#065f46', icon: '🛡️' }; break; // Green
+                        case 'detractor':     style = { fill: '#fef3c7', stroke: '#d97706', textColor: '#92400e', icon: '⚠️' }; break; // Yellow
+                        case 'influencer':    style = { fill: '#dbeafe', stroke: '#2563eb', textColor: '#1e40af', icon: '🧠' }; break; // Blue
+                    }
                     return style;
                 }
 
-                function buildTree(nodes, parentId) {
-                    const treeNodes = [];
-                    nodes.filter(node => node.pid === parentId)
-                         .forEach(node => {
-                            const children = buildTree(nodes, node.id);
-                            const style = getNodeStyle(node.tags);
-                            const newNode = {
-                                name: node.name,
-                                id: node.id,
-                                title: node.title,
-                                itemStyle: { color: style.color, borderColor: style.borderColor, borderWidth: 1.5 },
-                                label: { color: style.labelColor },
-                                children: children.length > 0 ? children : undefined
-                            };
-                            treeNodes.push(newNode);
-                        });
-                    return treeNodes;
-                }
+                // Define the Node template
+                myDiagram.nodeTemplate =
+                    $(go.Node, "Auto", // The whole node panel
+                        { toolTip: $(go.Adornment, "Auto", $(go.TextBlock, { margin: 4 }, new go.Binding("text", "title"))) }, // Tooltip shows title
+                        // Node Shape with bound colors
+                        $(go.Shape, "Rectangle", // Use Rectangle shape
+                            {
+                                name: "SHAPE",
+                                fill: "white", // Default fill, overridden by binding
+                                strokeWidth: 2,
+                                portId: "", // Node body acts as the port
+                                cursor: "pointer", // Show pointer cursor
+                                fromLinkable: true, toLinkable: true,
+                                fromLinkableDuplicates: true, toLinkableDuplicates: true,
+                                fromSpot: go.Spot.AllSides, toSpot: go.Spot.AllSides
+                            },
+                            new go.Binding("fill", "role", role => getNodeStyle(role).fill),
+                            new go.Binding("stroke", "role", role => getNodeStyle(role).stroke)
+                        ),
+                        // Vertical panel containing text blocks
+                        $(go.Panel, "Vertical", { margin: 8, alignment: go.Spot.Center },
+                            // Icon and Name (Horizontal Panel)
+                            $(go.Panel, "Horizontal", { alignment: go.Spot.Left },
+                                $(go.TextBlock, // Icon
+                                    {
+                                        font: "11px Inter, sans-serif",
+                                        margin: new go.Margin(0, 4, 0, 0), // Margin to the right of icon
+                                        maxSize: new go.Size(16, 16)
+                                    },
+                                    new go.Binding("text", "role", role => getNodeStyle(role).icon)
+                                ),
+                                $(go.TextBlock, // Name
+                                    {
+                                        font: "600 12px Inter, sans-serif", // Semibold, 12px
+                                        wrap: go.TextBlock.WrapFit, // Wrap text if needed
+                                        textAlign: "center",
+                                        editable: false // Prevent editing name
+                                    },
+                                    new go.Binding("text", "name"),
+                                    new go.Binding("stroke", "role", role => getNodeStyle(role).textColor)
+                                )
+                            ),
+                            // Title
+                            $(go.TextBlock,
+                                {
+                                    font: "10px Inter, sans-serif",
+                                    wrap: go.TextBlock.WrapFit,
+                                    textAlign: "center",
+                                    editable: false,
+                                    margin: new go.Margin(4, 0, 0, 0) // Top margin for title
+                                },
+                                new go.Binding("text", "title"),
+                                new go.Binding("stroke", "role", role => getNodeStyle(role).textColor)
+                            )
+                        ),
+                        // Add Collapse/Expand button
+                        $("TreeExpanderButton",
+                            { alignment: go.Spot.Bottom, alignmentFocus: go.Spot.Top },
+                            { visible: true } // Make sure it's visible
+                        )
+                    );
 
-                const ceoNodeDetails = nodesData.find(n => n.pid === null);
-                if (!ceoNodeDetails) throw new Error("Root node (CEO) not found in data!");
+                // Define the Link template (standard orthogonal lines)
+                myDiagram.linkTemplate =
+                    $(go.Link, go.Link.Orthogonal,
+                        { corner: 5, selectable: false },
+                        $(go.Shape, { strokeWidth: 1.5, stroke: "#cbd5e1" }) // Link color (Slate 300)
+                    );
 
-                const ceoStyle = getNodeStyle(ceoNodeDetails.tags);
-                const echartsData = {
-                    name: ceoNodeDetails.name,
-                    id: ceoNodeDetails.id,
-                    title: ceoNodeDetails.title,
-                    itemStyle: { color: ceoStyle.color, borderColor: ceoStyle.borderColor, borderWidth: 1.5 },
-                    label: { color: ceoStyle.labelColor },
-                    children: buildTree(nodesData, ceoNodeDetails.id)
-                };
 
-                // --- ECharts Options ---
-                option = {
-                    tooltip: {
-                        trigger: 'item', triggerOn: 'mousemove',
-                        formatter: params => params.data ? `${params.data.name}<br/>${params.data.title || ''}` : '',
-                        textStyle: { fontSize: 12, fontFamily: 'Inter, sans-serif' }
-                    },
-                    series: [{
-                        type: 'tree', data: [echartsData],
-                        top: '5%', left: '7%', bottom: '8%', right: '25%', // Adjusted layout percentages for spacing
-                        symbol: 'rect', // Use rectangle shape
-                        symbolSize: [150, 50], // Adjusted node size
-                        layout: 'orthogonal',
-                        orient: 'LR', // Left-to-Right orientation
-                        expandAndCollapse: true, initialTreeDepth: 2,
-                        roam: true, // Enable pan/zoom
-                        label: {
-                            position: 'inside', verticalAlign: 'middle', align: 'center',
-                            fontFamily: 'Inter, sans-serif',
-                            formatter: params => params.data ? `{name|${params.data.name}}\n{title|${params.data.title}}` : '',
-                            rich: {
-                                name: { fontWeight: '600', fontSize: 11, lineHeight: 14 }, // Adjusted font size
-                                title: { fontSize: 8, lineHeight: 10, color: '#475569' } // Adjusted font size
-                            }
-                        },
-                        leaves: { label: { position: 'inside', verticalAlign: 'middle', align: 'center' } },
-                        emphasis: { focus: 'descendant', itemStyle: { borderColor: '#4f46e5', borderWidth: 2.5 } },
-                        lineStyle: { color: '#cbd5e1', width: 1.5, curveness: 0 } // Straight lines
-                    }]
-                };
-
-                myChart.setOption(option);
-                window.addEventListener('resize', () => myChart.resize());
+                // Load the model data
+                myDiagram.model.nodeDataArray = nodesData;
 
             } catch (e) {
-                 console.error("ECharts initialization failed:", e);
-                 chartDom.innerHTML = '<p class="text-red-600 font-semibold p-4">Error initializing interactive org chart. Please check console.</p>';
+                 console.error("GoJS initialization failed:", e);
+                 chartDom.innerHTML = '<p class="text-red-600 font-semibold p-4">Error initializing GoJS chart. Please check console. Ensure the GoJS library loaded correctly.</p>';
             }
         });
     </script>
 
 </body>
 </html>
+```
+
+**Key Changes:**
+
+1.  **Library:** Replaced ECharts with GoJS library (`unpkg.com/gojs@2.3.18/release/go.js`).
+2.  **Disclaimer:** Added a prominent note below the chart emphasizing the GoJS license requirement for deployment without watermarks.
+3.  **HTML Container:** Changed the chart container ID to `gojs-org-chart` and the wrapper to `gojs-org-chart-container`.
+4.  **JavaScript:**
+    * Removed all ECharts initialization code.
+    * Added GoJS initialization code:
+        * Created a `go.Diagram` linked to the container div.
+        * Defined a `go.TreeLayout` for standard top-down org chart arrangement with adjusted spacing.
+        * Defined a `nodeTemplate` using GoJS panels and shapes:
+            * A main `Rectangle` shape whose `fill` and `stroke` are bound to the node's `role` data using the `getNodeStyle` helper function (updated for GoJS color properties).
+            * A `Vertical` panel inside for text.
+            * A `Horizontal` panel for the icon (bound using `getNodeStyle`) and the name (`TextBlock` bound to `name` and text color).
+            * A separate `TextBlock` for the title (bound to `title` and text color).
+            * Added a standard `"TreeExpanderButton"` for collapsing/expanding.
+        * Defined a simple `linkTemplate` for orthogonal connector lines.
+        * Created a `go.TreeModel` and assigned the `nodesData` (now using `key` and `parent` properties).
+        * Enabled standard interactivity like zooming and panning.
+5.  **CSS:** Removed ECharts-specific CSS. Added basic styles for the GoJS container. Most node styling is now handled within the GoJS template definitions.
+
+This GoJS version should provide a well-laid-out, interactive org chart. Remember to obtain a license if you intend to use this beyond evaluation or on a public/commercial site to remove the watermar
