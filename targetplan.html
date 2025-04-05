@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
     <style>
         /* Base styles */
         body {
@@ -70,6 +70,7 @@
             padding-bottom: 1.5rem;
             border-bottom: 1px dashed #cbd5e1; /* Slate 300 dashed */
         }
+        /* Remove bottom border for last items in grid rows */
         .grid > *:last-child .detail-item:last-child,
         .md\:grid-cols-2 > *:nth-last-child(-n+2) .detail-item:last-child,
         .lg\:grid-cols-3 > *:nth-last-child(-n+3) .detail-item:last-child {
@@ -77,11 +78,32 @@
              margin-bottom: 0;
              padding-bottom: 0;
         }
+        /* Remove bottom border for last item if not in grid */
         .section-content > .detail-item:last-child {
              border-bottom: none;
              margin-bottom: 0;
              padding-bottom: 0;
         }
+
+        /* Compact detail item styling (for Section 1) */
+        .compact-detail-items .detail-item {
+            margin-bottom: 0.75rem; /* Reduced margin */
+            padding-bottom: 0.75rem; /* Reduced padding */
+            border-bottom: none; /* No border */
+        }
+        /* Ensure last items in compact grid have no extra spacing adjustments */
+        .compact-detail-items.grid > *:last-child .detail-item:last-child,
+        .compact-detail-items.md\:grid-cols-2 > *:nth-last-child(-n+2) .detail-item:last-child,
+        .compact-detail-items.lg\:grid-cols-3 > *:nth-last-child(-n+3) .detail-item:last-child {
+             margin-bottom: 0.75rem; /* Match regular margin */
+             padding-bottom: 0.75rem; /* Match regular padding */
+        }
+         /* Ensure very last compact item has no bottom margin/padding */
+        .compact-detail-items > .detail-item:last-child {
+             margin-bottom: 0 !important;
+             padding-bottom: 0 !important;
+        }
+
 
         /* Detail label styling */
         .detail-label {
@@ -230,56 +252,21 @@
         .swot-item ul { margin-top: 0.5rem; padding-left: 1.25rem; }
         .swot-item li { margin-bottom: 0.375rem; }
 
-        /* Mermaid diagram styling */
-        .mermaid {
-            text-align: center;
+        /* --- ECharts Container Styling --- */
+        #echarts-org-chart-container {
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
             padding: 1rem;
-            background-color: #f1f5f9; /* Slate 100 */
+            background-color: #f8fafc; /* Match body background */
             border-radius: 0.5rem;
-            border: 1px solid #e2e8f0; /* Slate 200 */
+            /* border: 1px solid #e2e8f0; /* Optional border */
         }
-        .mermaid svg {
-            max-width: 100%;
-            height: auto;
+        #echarts-org-chart {
+            width: 100%;
+            height: 800px; /* Increased height */
+            min-height: 600px; /* Minimum height */
         }
-        /* Base node style */
-        .mermaid .node > rect,
-        .mermaid .node > polygon { /* Added polygon for default node shape */
-             fill: #e0e7ff !important; /* Light Indigo background */
-             stroke: #4f46e5 !important; /* Indigo border */
-             stroke-width: 1px !important;
-        }
-         .mermaid .node > .label {
-             fill: #3730a3 !important; /* Darker Indigo text */
-             font-weight: normal !important;
-        }
-        /* Role-specific overrides */
-        .mermaid .node.decision-maker > rect,
-        .mermaid .node.decision-maker > polygon { fill: #fee2e2 !important; stroke: #dc2626 !important; stroke-width: 2px !important; }
-        .mermaid .node.decision-maker > .label { fill: #991b1b !important; font-weight: bold !important; }
-
-        .mermaid .node.champion > rect,
-        .mermaid .node.champion > polygon { fill: #d1fae5 !important; stroke: #059669 !important; stroke-width: 2px !important; }
-        .mermaid .node.champion > .label { fill: #065f46 !important; font-weight: bold !important; }
-
-        .mermaid .node.detractor > rect,
-        .mermaid .node.detractor > polygon { fill: #fef3c7 !important; stroke: #d97706 !important; stroke-width: 2px !important; }
-        .mermaid .node.detractor > .label { fill: #92400e !important; font-weight: bold !important; }
-
-        .mermaid .node.influencer > rect,
-        .mermaid .node.influencer > polygon { fill: #dbeafe !important; stroke: #2563eb !important; stroke-width: 2px !important; }
-        .mermaid .node.influencer > .label { fill: #1e40af !important; font-weight: bold !important; }
-
-        .mermaid .node.exec-sponsor > rect,
-        .mermaid .node.exec-sponsor > polygon { fill: #e9d5ff !important; stroke: #7e22ce !important; stroke-width: 2px !important; }
-        .mermaid .node.exec-sponsor > .label { fill: #5b21b6 !important; font-weight: bold !important; }
-
-        /* Ensure edge labels have background */
-        .mermaid .edgeLabel { background-color: #f1f5f9 !important; padding: 0.1em 0.25em; border-radius: 0.25em; }
-        .mermaid .edgeLabel span { background: none !important; } /* Override potential inner span background */
-
+        /* --- End ECharts Container Styling --- */
 
         /* Footer Styling */
         .footer {
@@ -336,7 +323,7 @@
             <i class="fas fa-id-card section-icon"></i>
             <h3 class="section-title">1. Account Overview & Metadata</h3>
         </header>
-        <div class="section-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0">
+        <div class="section-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0 compact-detail-items">
             <div class="detail-item">
                 <span class="detail-label">Account Name</span>
                 <div class="detail-value"><strong>Target Corporation</strong></div>
@@ -767,89 +754,10 @@
         </header>
         <div class="section-content">
              <div class="detail-item">
-                <span class="detail-label">Key Stakeholder Org Chart (Simplified & Updated Hypotheses - Q1 2025)</span>
-                <div class="mermaid">
-graph TD
-    subgraph Executive Leadership
-        CEO[Brian Cornell - CEO & Chairman];
-    end
-
-    subgraph Operations & Finance
-        COO(Michael Fiddelke - EVP & COO);
-        CFO(Jim Lee - EVP & CFO);
-        SVP_Stores[Mark Schindele - EVP & Chief Stores Officer];
-        SVP_SupplyChain[Gretchen McCarthy - EVP & Chief Supply Chain Officer];
-    end
-
-    subgraph Commercial & Growth
-        CCO(Rick Gomez - EVP & Chief Commercial Officer);
-        CSGO(Christina Hennington - EVP & Chief Strategy & Growth Officer);
-        CMerchO_AHH[Jill Sando - EVP & CMerchO Apparel/Home/Hardlines];
-        CMerchO_FEB[Lisa Roath - EVP & CMerchO Food/Essentials/Beauty];
-        CMO(Lisa Roath - EVP & Chief Marketing Officer);
-        CGXO(Cara Sylvester - EVP & Chief Guest Experience Officer);
-    end
-
-    subgraph "HR & Legal/Corp Affairs"
-        CHRO(Melissa Kremer - EVP & CHRO);
-        CLCO(Amy Tu - EVP & Chief Legal & Compliance Officer);
-        CCAO[Matthew Zabel - EVP & Chief Corporate Affairs Officer];
-        VP_TA[VP Talent Acquisition - Kimbrough / Julkowski?];
-        VP_TM[VP Talent Management - Matchen / Lee?];
-        VP_HRTech[VP HR Technology - Kerkvliet?];
-        VP_DEI(Kiera Fernandez - EVP & Chief Community Impact & Equity Officer);
-        VP_Rewards[VP Total Rewards - Richardson?];
-        SVP_HRField[SVP HR Field & Ops - Emily Hebert?];
-    end
-
-    subgraph Technology
-        CIO(Brett Craig - EVP & CIO);
-        CISO[Jodie Kautt - SVP Cybersecurity];
-        VP_Infra[VP Infrastructure - Ostergaard / O'kane / Choudhry?];
-        CDPO(Prat Vemana - EVP & Chief Digital & Product Officer);
-    end
-
-    CEO --> COO;
-    CEO --> CFO;
-    CEO --> CCO;
-    CEO --> CSGO;
-    CEO --> CHRO;
-    CEO --> CLCO;
-    CEO --> CIO;
-    CEO --> CCAO;
-
-    COO --> SVP_Stores;
-    COO --> SVP_SupplyChain;
-
-    CCO --> CMerchO_AHH;
-    CCO --> CMerchO_FEB;
-    CCO --> CMO;
-    CCO --> CGXO;
-
-    CHRO --> VP_TA;
-    CHRO --> VP_TM;
-    CHRO --> VP_HRTech;
-    CHRO --> VP_DEI;
-    CHRO --> VP_Rewards;
-    CHRO --> SVP_HRField;
-
-    CIO --> CISO;
-    CIO --> VP_Infra;
-    CIO --> CDPO;
-
-    classDef decisionMaker fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#991b1b,font-weight:bold;
-    classDef champion fill:#d1fae5,stroke:#059669,stroke-width:2px,color:#065f46,font-weight:bold;
-    classDef detractor fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e,font-weight:bold;
-    classDef influencer fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e40af,font-weight:bold;
-    classDef execSponsor fill:#e9d5ff,stroke:#7e22ce,stroke-width:2px,color:#5b21b6,font-weight:bold;
-
-    class CEO,COO,CFO,CCO,CSGO,CHRO,CLCO,CIO decisionMaker;
-    class CMerchO_AHH,CMerchO_FEB,VP_TA,VP_TM,VP_DEI,CDPO champion;
-    class VP_HRTech,CISO detractor;
-    class SVP_Stores,SVP_SupplyChain,CMO,CGXO,CCAO,VP_Rewards,SVP_HRField,VP_Infra influencer;
-
-                </div>
-                <p class="text-xs text-slate-500 italic mt-1">Note: Specific VP names and reporting lines below EVP level are hypothesized and require validation. Roles indicate potential alignment based on likely priorities and recent org changes (FY24/FY25).</p>
+                <span class="detail-label">Key Stakeholder Org Chart (Interactive)</span>
+                <div id="echarts-org-chart-container">
+                    <div id="echarts-org-chart"></div> </div>
+                 <p class="text-xs text-slate-500 italic mt-1">Note: Click nodes to expand/collapse. Use mouse wheel or touch to zoom/pan. Colors indicate hypothesized roles (Red=Decision Maker, Green=Champion, Yellow=Detractor, Blue=Influencer). Specific VP names/reporting lines require validation.</p>
             </div>
 
             <div class="persona-card">
@@ -1377,39 +1285,130 @@ graph TD
              onerror="this.style.display='none'; this.parentElement.querySelector('span').textContent = 'Strategic Account Plan prepared by Eightfold AI';">
     </footer>
 
-    <script>
-        // Initialize Mermaid JS
-        // Use try-catch for robustness
-        try {
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: 'base', // Use 'base' theme and rely on CSS for styling
-                themeVariables: {
-                    // Define variables if needed, but rely on CSS classes primarily
-                    // primaryColor: '#f1f5f9', // Example: Slate 100 for background elements
-                    // nodeBorder: '#4f46e5', // Example: Indigo 600 for borders
-                    // defaultLinkColor: '#64748b', // Example: Slate 500 for links
-                    // textColor: '#1e293b' // Example: Slate 800 for text
-                },
-                 // Add security level if needed, though 'strict' might break HTML in labels
-                 // securityLevel: 'loose', // Allows more HTML but check security implications
-                 flowchart: {
-                     // Potentially useful for complex diagrams, default is fine usually
-                     // useMaxWidth: true // Tries to fit diagram within container width
+    <script type="text/javascript">
+        // --- ECharts Initialization ---
+        document.addEventListener('DOMContentLoaded', function () {
+            var chartDom = document.getElementById('echarts-org-chart');
+            if (!chartDom) {
+                console.error('ECharts container not found!');
+                 var containerWrapper = document.getElementById('echarts-org-chart-container');
+                 if(containerWrapper) {
+                     containerWrapper.innerHTML = '<p class="text-red-600 font-semibold p-4">Error: Chart container element not found.</p>';
                  }
-            });
-             // Optional: Force re-render if needed after initialization (usually not required with startOnLoad:true)
-             // mermaid.contentLoaded();
-        } catch (e) {
-            console.error("Mermaid initialization failed:", e);
-            // Optionally display a message to the user in the mermaid div
-            const mermaidDivs = document.querySelectorAll('.mermaid');
-            mermaidDivs.forEach(div => {
-                div.innerHTML = '<p class="text-red-600 font-semibold">Error rendering diagram. Please check console.</p>';
-                div.style.textAlign = 'left'; // Adjust alignment for error message
-                div.style.padding = '1rem';
-            });
-        }
+                return;
+            }
+
+            try {
+                var myChart = echarts.init(chartDom);
+                var option;
+
+                // --- Data Preparation ---
+                const nodesData = [
+                     { id: 'CEO', pid: null, name: 'Brian Cornell', title: 'CEO & Chairman', tags: ['decisionMaker'] },
+                     { id: 'COO', pid: 'CEO', name: 'Michael Fiddelke', title: 'EVP & COO', tags: ['decisionMaker'] },
+                     { id: 'CFO', pid: 'CEO', name: 'Jim Lee', title: 'EVP & CFO', tags: ['decisionMaker'] },
+                     { id: 'CCO', pid: 'CEO', name: 'Rick Gomez', title: 'EVP & CCO', tags: ['decisionMaker'] },
+                     { id: 'CSGO', pid: 'CEO', name: 'Christina Hennington', title: 'EVP & CSGO', tags: ['decisionMaker'] },
+                     { id: 'CHRO', pid: 'CEO', name: 'Melissa Kremer', title: 'EVP & CHRO', tags: ['decisionMaker'] },
+                     { id: 'CLCO', pid: 'CEO', name: 'Amy Tu', title: 'EVP & CLCO', tags: ['decisionMaker'] },
+                     { id: 'CIO', pid: 'CEO', name: 'Brett Craig', title: 'EVP & CIO', tags: ['decisionMaker'] },
+                     { id: 'CCAO', pid: 'CEO', name: 'Matthew Zabel', title: 'EVP & CCAO', tags: ['influencer'] },
+                     { id: 'SVP_Stores', pid: 'COO', name: 'Mark Schindele', title: 'EVP & Chief Stores Officer', tags: ['influencer'] },
+                     { id: 'SVP_SupplyChain', pid: 'COO', name: 'Gretchen McCarthy', title: 'EVP & Chief Supply Chain Officer', tags: ['influencer'] },
+                     { id: 'CMerchO_AHH', pid: 'CCO', name: 'Jill Sando', title: 'EVP & CMerchO AHH', tags: ['champion'] },
+                     { id: 'CMerchO_FEB', pid: 'CCO', name: 'Lisa Roath', title: 'EVP & CMerchO FEB', tags: ['champion'] },
+                     { id: 'CMO', pid: 'CCO', name: 'Lisa Roath', title: 'EVP & CMO', tags: ['influencer'] },
+                     { id: 'CGXO', pid: 'CCO', name: 'Cara Sylvester', title: 'EVP & CGXO', tags: ['influencer'] },
+                     { id: 'VP_TA', pid: 'CHRO', name: 'VP Talent Acquisition', title: 'Kimbrough / Julkowski?', tags: ['champion'] },
+                     { id: 'VP_TM', pid: 'CHRO', name: 'VP Talent Management', title: 'Matchen / Lee?', tags: ['champion'] },
+                     { id: 'VP_HRTech', pid: 'CHRO', name: 'VP HR Technology', title: 'Kerkvliet?', tags: ['detractor'] },
+                     { id: 'VP_DEI', pid: 'CHRO', name: 'Kiera Fernandez', title: 'EVP & Chief Community Impact & Equity Officer', tags: ['champion'] },
+                     { id: 'VP_Rewards', pid: 'CHRO', name: 'VP Total Rewards', title: 'Richardson?', tags: ['influencer'] },
+                     { id: 'SVP_HRField', pid: 'CHRO', name: 'SVP HR Field & Ops', title: 'Emily Hebert?', tags: ['influencer'] },
+                     { id: 'CISO', pid: 'CIO', name: 'Jodie Kautt', title: 'SVP Cybersecurity', tags: ['detractor'] },
+                     { id: 'VP_Infra', pid: 'CIO', name: 'VP Infrastructure', title: 'Ostergaard / O\'kane / Choudhry?', tags: ['influencer'] },
+                     { id: 'CDPO', pid: 'CIO', name: 'Prat Vemana', title: 'EVP & Chief Digital & Product Officer', tags: ['champion'] },
+                ];
+
+                function getNodeStyle(tags) {
+                    let style = { color: '#ede9fe', borderColor: '#a78bfa', labelColor: '#5b21b6' }; // Default: Violet
+                    if (!tags || tags.length === 0) return style;
+                    if (tags.includes('decisionMaker')) style = { color: '#fee2e2', borderColor: '#dc2626', labelColor: '#991b1b' }; // Red
+                    else if (tags.includes('champion')) style = { color: '#d1fae5', borderColor: '#059669', labelColor: '#065f46' }; // Green
+                    else if (tags.includes('detractor')) style = { color: '#fef3c7', borderColor: '#d97706', labelColor: '#92400e' }; // Amber
+                    else if (tags.includes('influencer')) style = { color: '#dbeafe', borderColor: '#2563eb', labelColor: '#1e40af' }; // Blue
+                    return style;
+                }
+
+                function buildTree(nodes, parentId) {
+                    const treeNodes = [];
+                    nodes.filter(node => node.pid === parentId)
+                         .forEach(node => {
+                            const children = buildTree(nodes, node.id);
+                            const style = getNodeStyle(node.tags);
+                            const newNode = {
+                                name: node.name,
+                                id: node.id,
+                                title: node.title,
+                                itemStyle: { color: style.color, borderColor: style.borderColor, borderWidth: 1.5 },
+                                label: { color: style.labelColor },
+                                children: children.length > 0 ? children : undefined
+                            };
+                            treeNodes.push(newNode);
+                        });
+                    return treeNodes;
+                }
+
+                const ceoNodeDetails = nodesData.find(n => n.pid === null);
+                if (!ceoNodeDetails) throw new Error("Root node (CEO) not found in data!");
+
+                const ceoStyle = getNodeStyle(ceoNodeDetails.tags);
+                const echartsData = {
+                    name: ceoNodeDetails.name,
+                    id: ceoNodeDetails.id,
+                    title: ceoNodeDetails.title,
+                    itemStyle: { color: ceoStyle.color, borderColor: ceoStyle.borderColor, borderWidth: 1.5 },
+                    label: { color: ceoStyle.labelColor },
+                    children: buildTree(nodesData, ceoNodeDetails.id)
+                };
+
+                // --- ECharts Options ---
+                option = {
+                    tooltip: {
+                        trigger: 'item', triggerOn: 'mousemove',
+                        formatter: params => params.data ? `${params.data.name}<br/>${params.data.title || ''}` : '',
+                        textStyle: { fontSize: 12, fontFamily: 'Inter, sans-serif' }
+                    },
+                    series: [{
+                        type: 'tree', data: [echartsData],
+                        top: '5%', left: '5%', bottom: '5%', right: '15%', // Adjusted layout percentages
+                        symbol: 'roundRect', symbolSize: [160, 55], // Slightly smaller nodes
+                        orient: 'TB',
+                        expandAndCollapse: true, initialTreeDepth: 2, // Collapse more initially
+                        roam: true, // Enable pan/zoom
+                        label: {
+                            position: 'inside', verticalAlign: 'middle', align: 'center',
+                            fontFamily: 'Inter, sans-serif',
+                            formatter: params => params.data ? `{name|${params.data.name}}\n{title|${params.data.title}}` : '',
+                            rich: {
+                                name: { fontWeight: '600', fontSize: 12, lineHeight: 16 }, // Adjusted font size
+                                title: { fontSize: 9, lineHeight: 12, color: '#475569' } // Adjusted font size
+                            }
+                        },
+                        leaves: { label: { position: 'inside', verticalAlign: 'middle', align: 'center' } },
+                        emphasis: { focus: 'descendant', itemStyle: { borderColor: '#4f46e5', borderWidth: 2.5 } },
+                        lineStyle: { color: '#cbd5e1', width: 1.5, curveness: 0.5 }
+                    }]
+                };
+
+                myChart.setOption(option);
+                window.addEventListener('resize', () => myChart.resize());
+
+            } catch (e) {
+                 console.error("ECharts initialization failed:", e);
+                 chartDom.innerHTML = '<p class="text-red-600 font-semibold p-4">Error initializing interactive org chart. Please check console.</p>';
+            }
+        });
     </script>
 
 </body>
