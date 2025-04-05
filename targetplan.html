@@ -14,39 +14,42 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f9fafb; /* Light gray background */
+            color: #1f2937; /* Cool Gray 800 */
+            font-size: 16px; /* Base font size */
+            line-height: 1.6; /* Improved line spacing */
         }
         .section-card {
             background-color: #ffffff;
             border-radius: 0.75rem; /* 12px */
             border: 1px solid #e5e7eb; /* Cool Gray 200 */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            margin-bottom: 2rem; /* 32px */
+            margin-bottom: 2.5rem; /* Increased spacing between cards */
             overflow: hidden;
         }
         .section-header {
             background-color: #f3f4f6; /* Cool Gray 100 */
             border-bottom: 1px solid #e5e7eb; /* Cool Gray 200 */
-            padding: 1rem 1.5rem; /* 16px 24px */
+            padding: 1.25rem 1.75rem; /* Increased padding */
             display: flex;
             align-items: center;
         }
         .section-title {
-            font-size: 1.125rem; /* 18px */
+            font-size: 1.25rem; /* Increased size */
             font-weight: 600;
             color: #4f46e5; /* Indigo 600 */
-            margin-left: 0.5rem; /* 8px */
+            margin-left: 0.75rem; /* Increased spacing */
         }
         .section-icon {
             color: #4f46e5; /* Indigo 600 */
-            font-size: 1.25rem; /* 20px */
+            font-size: 1.375rem; /* Increased size */
         }
         .section-content {
-            padding: 1.5rem; /* 24px */
+            padding: 1.75rem; /* Increased padding */
         }
         .detail-item {
-            margin-bottom: 1rem; /* 16px */
-            padding-bottom: 1rem;
-            border-bottom: 1px dashed #e5e7eb;
+            margin-bottom: 1.5rem; /* Increased spacing */
+            padding-bottom: 1.5rem; /* Increased spacing */
+            border-bottom: 1px dashed #d1d5db; /* Lighter dash */
         }
          .detail-item:last-child {
             border-bottom: none;
@@ -55,80 +58,100 @@
         }
         .detail-label {
             display: block;
-            font-size: 0.75rem; /* 12px */
+            font-size: 0.8rem; /* Slightly larger label */
             font-weight: 600;
-            color: #6b7280; /* Cool Gray 500 */
+            color: #4b5563; /* Darker Gray 600 */
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.25rem; /* 4px */
+            margin-bottom: 0.375rem; /* Increased spacing */
         }
+        /* General text value styling */
         .detail-value, .persona-message p, .strategy-point p, .product-rec p, .missing-elements p {
-            font-size: 0.9375rem; /* 15px */
-            color: #1f2937; /* Cool Gray 800 */
-            line-height: 1.6;
+            font-size: 1rem; /* Base size for values */
+            color: #374151; /* Gray 700 for slightly softer text */
+            line-height: 1.65;
         }
+        /* Styling for emphasized text (bold) */
+        .detail-value strong, .persona-message strong, .strategy-point strong, .product-rec strong, .missing-elements strong {
+            font-weight: 600;
+            color: #111827; /* Gray 900 for strong emphasis */
+        }
+        /* Styling for lists within detail items */
         .detail-value ul, .persona-message ul, .strategy-point ul, .product-rec ul, .missing-elements ul {
             list-style-type: disc;
-            padding-left: 1.25rem; /* 20px */
-            margin-top: 0.5rem;
+            padding-left: 1.5rem; /* More indent */
+            margin-top: 0.75rem; /* Space above list */
         }
         .detail-value li, .persona-message li, .strategy-point li, .product-rec li, .missing-elements li {
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem; /* Space between list items */
+            color: #374151; /* Match value color */
         }
+        /* Styling for sub-points or key areas within a detail-value */
+        .detail-value .sub-point {
+            display: flex;
+            align-items: flex-start; /* Align icon top */
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .detail-value .sub-point i.fa-fw { /* Ensure fixed-width icons align */
+            width: 1.25em; /* Adjust width as needed */
+            text-align: center;
+            margin-right: 0.625rem; /* 10px */
+            color: #6366f1; /* Indigo 500 */
+            margin-top: 0.25rem; /* Align icon slightly */
+        }
+         .detail-value .sub-point span {
+            flex: 1;
+         }
         .major-section-title {
-            font-size: 1.5rem; /* 24px */
+            font-size: 1.75rem; /* Larger */
             font-weight: 700;
-            color: #374151; /* Cool Gray 700 */
-            margin-top: 2.5rem; /* 40px */
-            margin-bottom: 1.5rem; /* 24px */
-            padding-bottom: 0.75rem; /* 12px */
-            border-bottom: 2px solid #d1d5db; /* Cool Gray 300 */
+            color: #1f2937; /* Darker Gray 800 */
+            margin-top: 3rem; /* More space above */
+            margin-bottom: 1.75rem; /* More space below */
+            padding-bottom: 1rem; /* More space below line */
+            border-bottom: 2px solid #9ca3af; /* Darker Gray 400 */
             display: flex;
             align-items: center;
         }
         .major-section-icon {
-            margin-right: 0.75rem; /* 12px */
+            margin-right: 1rem; /* More space */
             color: #4f46e5; /* Indigo 600 */
-        }
-         .sub-section-title {
-            font-size: 1rem; /* 16px */
-            font-weight: 600;
-            color: #4f46e5; /* Indigo 600 */
-            margin-top: 1.5rem; /* 24px */
-            margin-bottom: 0.75rem; /* 12px */
-            padding-bottom: 0.25rem; /* 4px */
-            border-bottom: 1px solid #e5e7eb; /* Cool Gray 200 */
         }
          .persona-card {
             border: 1px solid #e5e7eb;
             border-radius: 0.5rem;
-            padding: 1rem;
-            margin-bottom: 1rem;
+            padding: 1.25rem; /* More padding */
+            margin-bottom: 1.25rem; /* More spacing */
             background-color: #f9fafb;
         }
         .persona-title {
             font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.5rem;
+            font-size: 1.05rem; /* Slightly larger */
+            color: #111827; /* Darker Title */
+            margin-bottom: 0.75rem; /* More spacing */
             display: flex;
             align-items: center;
         }
         .persona-icon {
-            margin-right: 0.5rem;
+            margin-right: 0.625rem;
             color: #4f46e5;
+            width: 1.2em; /* Fixed width */
+            text-align: center;
         }
         .role-badge {
             display: inline-block;
-            padding: 0.125rem 0.5rem;
+            padding: 0.125rem 0.625rem; /* More padding */
             border-radius: 9999px;
             font-size: 0.75rem;
             font-weight: 500;
             margin-left: 0.75rem;
+            border: 1px solid transparent;
         }
-        .badge-decision-maker { background-color: #fee2e2; color: #991b1b; } /* Red */
-        .badge-champion { background-color: #d1fae5; color: #065f46; } /* Green */
-        .badge-detractor { background-color: #fef3c7; color: #92400e; } /* Amber */
-        .badge-influencer { background-color: #dbeafe; color: #1e40af; } /* Blue */
+        .badge-decision-maker { background-color: #fee2e2; color: #991b1b; border-color: #fecaca;} /* Red */
+        .badge-champion { background-color: #d1fae5; color: #065f46; border-color: #a7f3d0;} /* Green */
+        .badge-detractor { background-color: #fef3c7; color: #92400e; border-color: #fde68a;} /* Amber */
+        .badge-influencer { background-color: #dbeafe; color: #1e40af; border-color: #bfdbfe;} /* Blue */
         .swot-grid {
              display: grid;
              grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -149,21 +172,25 @@
          /* Mermaid diagram styling */
          .mermaid {
             text-align: center;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
+            margin-top: 1.5rem; /* More space */
+            margin-bottom: 1.5rem; /* More space */
+         }
+         .mermaid svg { /* Ensure SVG scales nicely */
+            max-width: 100%;
+            height: auto;
          }
 
     </style>
 </head>
 <body class="p-6 md:p-10">
 
-    <header class="mb-8 pb-4 border-b border-gray-300 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+    <header class="mb-10 pb-6 border-b border-gray-300 flex flex-col sm:flex-row justify-between items-start sm:items-center">
         <div>
             <h1 class="text-3xl font-bold text-gray-800">Comprehensive Strategic Account Plan</h1>
             <h2 class="text-2xl font-semibold text-indigo-700 mt-1">Target Corporation</h2>
         </div>
         <div class="mt-4 sm:mt-0 text-sm text-gray-600">
-            <span>Version: 5.0</span> |
+            <span>Version: 6.0 (Enhanced Readability)</span> |
             <span>Last Updated: April 5, 2025</span> |
             <span>Status: <span class="font-semibold text-indigo-600">Prospect</span></span>
         </div>
@@ -178,10 +205,10 @@
             <i class="fas fa-id-card section-icon"></i>
             <h3 class="section-title">1. Account Overview & Metadata</h3>
         </header>
-        <div class="section-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="section-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0">
             <div class="detail-item">
                 <span class="detail-label">Account Name</span>
-                <div class="detail-value">Target Corporation</div>
+                <div class="detail-value"><strong>Target Corporation</strong></div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Account ID (SFDC/CRM)</span>
@@ -193,7 +220,7 @@
             </div>
             <div class="detail-item">
                 <span class="detail-label">Website</span>
-                <div class="detail-value"><a href="https://corporate.target.com" target="_blank" class="text-indigo-600 hover:underline">corporate.target.com</a></div>
+                <div class="detail-value"><a href="https://www.target.com" target="_blank" class="text-indigo-600 hover:underline">www.target.com</a></div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Headquarters Location</span>
@@ -217,7 +244,7 @@
             </div>
             <div class="detail-item">
                 <span class="detail-label">Account Owner (AE)</span>
-                <div class="detail-value">Katie Mavromatis</div>
+                <div class="detail-value"><strong>Katie Mavromatis</strong></div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Sales Team & Support</span>
@@ -238,19 +265,19 @@
         <div class="section-content">
             <div class="detail-item">
                 <span class="detail-label">Annual Revenue (Latest Fiscal Year)</span>
-                <div class="detail-value">~$107.4 Billion (FYE Feb 2024). USD $106,566,000 (in 000s). (Range: Over $5 bil.)</div>
+                <div class="detail-value"><strong>~$107.4 Billion</strong> (FYE Feb 2024). USD $106,566,000 (in 000s). (Range: Over $5 bil.)</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Revenue Trend Summary</span>
-                <div class="detail-value">Normalization/slowing growth post-pandemic peaks; focus on profitable sales and traffic.</div>
+                <div class="detail-value">Normalization/slowing growth post-pandemic peaks; focus on <strong>profitable sales</strong> and traffic.</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Profitability Metrics Summary</span>
-                <div class="detail-value">Operating margins (~5-6% historically) pressured by supply chain, fulfillment, labor costs, and promotions. Focus on efficiency and owned brand mix.</div>
+                <div class="detail-value">Operating margins (~5-6% historically) pressured by supply chain, fulfillment, labor costs, and promotions. Focus on <strong>efficiency</strong> and <strong>owned brand mix</strong>.</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Key Cost Structure Highlights (COGS, SG&A, Labor)</span>
-                <div class="detail-value">Facing pressures from labor costs, supply chain expenses, and potential economic slowdown impacting discretionary spending.</div>
+                <div class="detail-value">Facing pressures from <strong>labor costs</strong>, supply chain expenses, and potential economic slowdown impacting discretionary spending.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Margin Analysis (Gross, Operating, Net Trends)</span>
@@ -258,15 +285,15 @@
             </div>
             <div class="detail-item">
                 <span class="detail-label">CapEx vs. OpEx Trends</span>
-                <div class="detail-value">Significant CapEx ($4-5B planned 2025) focused on stores, supply chain, and technology.</div>
+                <div class="detail-value">Significant <strong>CapEx ($4-5B planned 2025)</strong> focused on stores, supply chain, and technology.</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Analyst Commentary Summary (Key Themes)</span>
-                <div class="detail-value">Generally viewed as strong operator, but sensitive to consumer spending and margin pressures. Focus on value messaging in earnings calls.</div>
+                <div class="detail-value">Generally viewed as strong operator, but sensitive to consumer spending and margin pressures. Focus on <strong>value messaging</strong> in earnings calls.</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Financial Health Assessment & Implications for HR/Tech Spend</span>
-                <div class="detail-value">Solid financial position. Margin focus suggests ROI justification for new investments is critical. Financial health likely supports large investments if ROI/efficiency is clear, especially given cost pressures.</div>
+                <div class="detail-value">Solid financial position. Margin focus suggests <strong>ROI justification</strong> for new investments is critical. Financial health likely supports large investments if ROI/efficiency is clear, especially given cost pressures.</div>
             </div>
         </div>
     </section>
@@ -283,7 +310,7 @@
             </div>
             <div class="detail-item">
                 <span class="detail-label">Core Business Model & Key Offerings</span>
-                <div class="detail-value">Large-format US general merchandise retailer using stores (~1950+) as omnichannel hubs (sales, pickup, delivery). Strong focus on Owned Brands (Good & Gather, Cat & Jack, Threshold). Growing digital platforms, Target Plus marketplace, Roundel retail media network. Target Circle loyalty program is key.</div>
+                <div class="detail-value">Large-format US general merchandise retailer using stores (~1950+) as omnichannel hubs (sales, pickup, delivery). Strong focus on <strong>Owned Brands</strong> (Good & Gather, Cat & Jack, Threshold). Growing digital platforms, Target Plus marketplace, Roundel retail media network. <strong>Target Circle</strong> loyalty program is key.</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Major Business Units/Segments</span>
@@ -293,21 +320,21 @@
                 <span class="detail-label">Key Strategic Pillars/Imperatives</span>
                 <div class="detail-value">
                     <ul>
-                        <li>1) Differentiate via Brands (Owned & National)</li>
-                        <li>2) Lead in Omnichannel (Store-as-Hub)</li>
-                        <li>3) Enhance Guest Loyalty (Target Circle)</li>
-                        <li>4) Execute "Target Forward" (Sustainability & Equity)</li>
-                        <li>5) Invest in Team Member experience & development</li>
+                        <li><i class="fas fa-tags fa-fw mr-2 text-indigo-500"></i>1) Differentiate via <strong>Brands</strong> (Owned & National)</li>
+                        <li><i class="fas fa-store fa-fw mr-2 text-indigo-500"></i>2) Lead in <strong>Omnichannel</strong> (Store-as-Hub)</li>
+                        <li><i class="fas fa-users fa-fw mr-2 text-indigo-500"></i>3) Enhance Guest <strong>Loyalty</strong> (Target Circle)</li>
+                        <li><i class="fas fa-leaf fa-fw mr-2 text-indigo-500"></i>4) Execute <strong>"Target Forward"</strong> (Sustainability & Equity)</li>
+                        <li><i class="fas fa-user-tie fa-fw mr-2 text-indigo-500"></i>5) Invest in <strong>Team Member Experience</strong> & development</li>
                     </ul>
                 </div>
             </div>
             <div class="detail-item">
                  <span class="detail-label">Analysis of Strategic Imperatives & Talent Implications</span>
                  <div class="detail-value">
-                     <p><strong>Omnichannel/Store-as-Hub:</strong> Requires exceptional frontline execution (staffing, training, efficiency). Implies need for efficient high-volume TA, effective onboarding, skills for hybrid store roles, and optimized workforce planning. Supply chain talent also crucial.</p>
-                     <p><strong>"Target Forward":</strong> DE&I and Well-being goals require fair, transparent, measurable talent processes at scale. Sustainability goals require new 'green skills'. Implies need for bias mitigation, DE&I analytics, skills identification.</p>
-                     <p><strong>Digital Growth:</strong> Requires attracting/retaining Tech, Data Science, Digital Marketing talent. Implies need for strong tech employer brand, efficient tech recruiting, internal digital skill pathways.</p>
-                     <p><strong>Owned Brands Leadership:</strong> Requires strong Merchant, Design, Sourcing, Brand Management talent. Implies need to attract/develop specialized talent and foster collaboration.</p>
+                     <div class="sub-point"><i class="fas fa-store fa-fw"></i><span><strong>Omnichannel/Store-as-Hub:</strong> Requires exceptional frontline execution (staffing, training, efficiency). Implies need for efficient high-volume TA, effective onboarding, skills for hybrid store roles, and optimized workforce planning. Supply chain talent also crucial.</span></div>
+                     <div class="sub-point"><i class="fas fa-leaf fa-fw"></i><span><strong>"Target Forward":</strong> DE&I and Well-being goals require fair, transparent, measurable talent processes at scale. Sustainability goals require new 'green skills'. Implies need for bias mitigation, DE&I analytics, skills identification.</span></div>
+                     <div class="sub-point"><i class="fas fa-laptop fa-fw"></i><span><strong>Digital Growth:</strong> Requires attracting/retaining Tech, Data Science, Digital Marketing talent. Implies need for strong tech employer brand, efficient tech recruiting, internal digital skill pathways.</span></div>
+                     <div class="sub-point"><i class="fas fa-tshirt fa-fw"></i><span><strong>Owned Brands Leadership:</strong> Requires strong Merchant, Design, Sourcing, Brand Management talent. Implies need to attract/develop specialized talent and foster collaboration.</span></div>
                  </div>
             </div>
              <div class="detail-item">
@@ -324,7 +351,7 @@
             </div>
              <div class="detail-item">
                 <span class="detail-label">Market Position & Key Competitors</span>
-                <div class="detail-value">Top 10 US retailer. Competitors: Walmart, Amazon, Costco, Kroger, Albertsons, specialty retailers, off-price.</div>
+                <div class="detail-value">Top 10 US retailer. Competitors: <strong>Walmart, Amazon, Costco, Kroger, Albertsons</strong>, specialty retailers, off-price.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Industry Dynamics & Trends</span>
@@ -332,7 +359,7 @@
             </div>
             <div class="detail-item">
                 <span class="detail-label">PESTLE Analysis Summary</span>
-                <div class="detail-value">Political (Labor/privacy laws), Economic (Consumer spending, inflation), Social (Convenience, value, DEI, CSR), Technological (E-comm, AI, automation, mobile), Legal (Employment/consumer law, data security), Environmental (Sustainability demands, climate impact).</div>
+                <div class="detail-value"><strong>Political</strong> (Labor/privacy laws), <strong>Economic</strong> (Consumer spending, inflation), <strong>Social</strong> (Convenience, value, DEI, CSR), <strong>Technological</strong> (E-comm, AI, automation, mobile), <strong>Legal</strong> (Employment/consumer law, data security), <strong>Environmental</strong> (Sustainability demands, climate impact).</div>
             </div>
              <div class="detail-item">
                  <span class="detail-label">SWOT Analysis (with Talent Implications)</span>
@@ -397,23 +424,25 @@
         <div class="section-content">
             <div class="detail-item">
                 <span class="detail-label">Total Employee Size</span>
-                <div class="detail-value">~415,000 (2024). Employee Range: 10,000+. (Note: 150K+ mentioned in Sales Navigator, 440k in ZoomInfo)</div>
+                <div class="detail-value"><strong>~415,000</strong> (2024). Employee Range: 10,000+. (Note: 150K+ mentioned in Sales Navigator, 440k in ZoomInfo)</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Workforce Composition (Frontline vs. Corp, Key Functions)</span>
-                <div class="detail-value">Predominantly US Store/DC Based (~85-90% hourly frontline roles estimated). Corporate HQ (Minneapolis) + Tech Hubs. Functional distribution includes Operations (largest), Sales, Customer Success, IT.</div>
+                <div class="detail-value">Predominantly US Store/DC Based (<strong>~85-90% hourly frontline</strong> roles estimated). Corporate HQ (Minneapolis) + Tech Hubs. Functional distribution includes Operations (largest), Sales, Customer Success, IT.</div>
             </div>
             <div class="detail-item">
                 <span class="detail-label">Stated HR/Talent Strategy & Priorities (incl. CHRO Vision)</span>
-                <div class="detail-value">Aligned with "Care, Grow, Win Together" philosophy. Priorities: enhancing team member experience (well-being, pay, scheduling), fostering inclusive culture (Target Forward DE&I goals), internal development (leadership pipeline, store-to-corp paths), building capabilities (omnichannel, digital), driving HR efficiency. CHRO Vision (Melissa Kremer): Likely emphasizes culture, DE&I, development, and supporting team members as key enablers.</div>
+                <div class="detail-value">Aligned with <strong>"Care, Grow, Win Together"</strong> philosophy. Priorities: enhancing team member experience (well-being, pay, scheduling), fostering inclusive culture (Target Forward DE&I goals), internal development (leadership pipeline, store-to-corp paths), building capabilities (omnichannel, digital), driving HR efficiency. CHRO Vision (Melissa Kremer): Likely emphasizes culture, DE&I, development, and supporting team members as key enablers.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Key HR Leadership</span>
-                <div class="detail-value">Melissa Kremer (EVP & CHRO). Others: Andi Marston (Global Sr VP HR HQ), Courtney Richardson (Sr VP Pay & Benefits), Emily Hebert (Sr VP HR Field & Ops), Betty Kimbrough/Brad Julkowski (VP TA), Mark Gabel (VP Prof Dev), Leslie Pilliod (VP Benefits), D Gregory Kerkvliet (Sr Dir HR Tech). (Need to confirm current VPs for TA, TM, HR Tech, DE&I).</div>
+                <div class="detail-value">
+                    <strong>Melissa Kremer</strong> (EVP & CHRO). Others: <strong>Andi Marston</strong> (Global Sr VP HR HQ), <strong>Courtney Richardson</strong> (Sr VP Pay & Benefits), <strong>Emily Hebert</strong> (Sr VP HR Field & Ops), <strong>Betty Kimbrough / Brad Julkowski</strong> (VP TA - *Needs Confirmation*), <strong>Mark Gabel</strong> (VP Prof Dev), <strong>Leslie Pilliod</strong> (VP Benefits), <strong>D Gregory Kerkvliet</strong> (Sr Dir HR Tech). (Need to confirm current VPs for TM, DE&I).
+                </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">DEI Initiatives & Goals Summary</span>
-                <div class="detail-value">Central pillar of "Target Forward" with public goals for representation and advancement. Requires fair processes and robust analytics. Key contacts identified for Inclusive Design & Supplier Diversity (Dominique Mueller, Lindsey Peterson, Tonda Collier, Kathy Mason, Juju Jang).</div>
+                <div class="detail-value">Central pillar of <strong>"Target Forward"</strong> with public goals for representation and advancement. Requires fair processes and robust analytics. Key contacts: <strong>Dominique Mueller</strong> (Sr Dir Inclusive Design), <strong>Lindsey Peterson</strong> (Dir DE&I), <strong>Tonda Collier / Kathy Mason / Juju Jang</strong> (Supplier Diversity roles).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Employee Engagement / Sentiment Indicators</span>
@@ -430,7 +459,7 @@
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Overall Hiring Volume (Annual Est., Seasonal)</span>
-                <div class="detail-value">Massive scale, >100k seasonal hires alone. Total job openings recently ~10,963.</div>
+                <div class="detail-value">Massive scale, <strong>>100k seasonal hires</strong> alone. Total job openings recently ~10,963.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">TA Process Overview (High-Volume vs. Corporate)</span>
@@ -438,11 +467,11 @@
             </div>
              <div class="detail-item">
                 <span class="detail-label">Key TA Challenges (Efficiency, Quality, Experience, DE&I)</span>
-                <div class="detail-value">Likely includes speed/cost for high-volume, quality/consistency, mobile candidate experience, DE&I in hiring funnels, competition for specialized roles.</div>
+                <div class="detail-value">Likely includes <strong>speed/cost</strong> for high-volume, quality/consistency, <strong>mobile candidate experience</strong>, DE&I in hiring funnels, competition for specialized roles.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Current TA Technologies (ATS, CRM, Assessments)</span>
-                <div class="detail-value">Workday (ATS assumed). Avature (CRM?), SeekOut (Sourcing), Taleo (Legacy?).</div>
+                <div class="detail-value"><strong>Workday</strong> (ATS assumed). <strong>Avature</strong> (CRM?), <strong>SeekOut</strong> (Sourcing), <strong>Taleo</strong> (Legacy?).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Employer Brand Perception</span>
@@ -453,33 +482,45 @@
 
      <section class="section-card">
         <header class="section-header">
-            <i class="fas fa-users-cog section-icon"></i>
+            <i class="fas fa-user-graduate section-icon"></i>
             <h3 class="section-title">6. Talent Management (TM) & Development Landscape</h3>
         </header>
         <div class="section-content">
             <div class="detail-item">
                 <span class="detail-label">Internal Mobility Approach & Challenges (esp. Store-to-Corporate)</span>
-                <div class="detail-value">Stated goal, but likely challenged by scale, skills visibility, and process gaps.</div>
+                <div class="detail-value">
+                    <div class="sub-point"><i class="fas fa-route fa-fw"></i><span>Stated goal, but likely challenged by scale, skills visibility, and process gaps.</span></div>
+                </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Performance Management Practices</span>
-                <div class="detail-value">Likely uses Workday Talent/Performance modules; consistency across stores may vary.</div>
+                 <div class="detail-value">
+                    <div class="sub-point"><i class="fas fa-chart-bar fa-fw"></i><span>Likely uses Workday Talent/Performance modules; consistency across stores may vary.</span></div>
+                </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Learning & Development Strategy & Platforms (LMS/LXP)</span>
-                <div class="detail-value">Degreed likely used for LXP. Focus on operational training, leadership development, potentially digital/future skills. Key contacts: Mark Gabel (VP Prof Dev), Ricardo Vargas (Sr Dir L&D), Sheryl Sukolsky (Sr Dir Supplier Perf/L&D), Elsa Pito/Joey Hogan (Head of Learning/Training).</div>
+                <div class="detail-value">
+                    <div class="sub-point"><i class="fas fa-chalkboard-teacher fa-fw"></i><span><strong>Degreed</strong> likely used for LXP. Focus on operational training, leadership development, potentially digital/future skills. Key contacts: <strong>Mark Gabel</strong> (VP Prof Dev), <strong>Ricardo Vargas</strong> (Sr Dir L&D), <strong>Sheryl Sukolsky</strong> (Sr Dir Supplier Perf/L&D), <strong>Elsa Pito/Joey Hogan</strong> (Head of Learning/Training).</span></div>
+                </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Succession Planning Approach</span>
-                <div class="detail-value">Likely focused on leadership roles (Store, DC, Corporate); needs robust internal talent identification. Key contacts: Jim Matchen (Dir TM), Kristi Sorenson (Change Dir Talent), Melissa Murphy/Kristen Lee/Kate Huber (Dir TM).</div>
+                 <div class="detail-value">
+                    <div class="sub-point"><i class="fas fa-sitemap fa-fw"></i><span>Likely focused on leadership roles (Store, DC, Corporate); needs robust internal talent identification. Key contacts: <strong>Jim Matchen</strong> (Dir TM), <strong>Kristi Sorenson</strong> (Change Dir Talent), <strong>Melissa Murphy/Kristen Lee/Kate Huber</strong> (Dir TM).</span></div>
+                </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Skills Landscape & Intelligence Approach</span>
-                <div class="detail-value">Likely uses Workday Skills Cloud + Degreed skills data. Potential gaps in unified view, inference, and future skills mapping.</div>
+                 <div class="detail-value">
+                    <div class="sub-point"><i class="fas fa-brain fa-fw"></i><span>Likely uses Workday Skills Cloud + Degreed skills data. Potential gaps in unified view, inference, and future skills mapping.</span></div>
+                </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Key TM Challenges (Retention, Skills Gaps, Leadership Pipeline)</span>
-                <div class="detail-value">Frontline retention, building diverse leadership pipeline (esp. store-to-corp), closing digital/supply chain skill gaps.</div>
+                <div class="detail-value">
+                    <div class="sub-point"><i class="fas fa-exclamation-triangle fa-fw"></i><span><strong>Frontline retention</strong>, building <strong>diverse leadership pipeline</strong> (esp. store-to-corp), closing <strong>digital/supply chain skill gaps</strong>.</span></div>
+                </div>
             </div>
         </div>
     </section>
@@ -492,15 +533,15 @@
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Core HRIS</span>
-                <div class="detail-value">Workday (Confirmed).</div>
+                <div class="detail-value"><strong>Workday</strong> (Confirmed).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Key Integrated Systems (WFM, Payroll, LMS/LXP, etc.)</span>
-                <div class="detail-value">Degreed (LMS/LXP - Confirmed). Avature (CRM? - Confirmed), SeekOut (Sourcing - Confirmed). Likely major WFM (Kronos/UKG?), POS, DC systems. Taleo (Legacy? - Confirmed).</div>
+                <div class="detail-value"><strong>Degreed</strong> (LMS/LXP - Confirmed). <strong>Avature</strong> (CRM? - Confirmed), <strong>SeekOut</strong> (Sourcing - Confirmed). Likely major WFM (Kronos/UKG?), POS, DC systems. <strong>Taleo</strong> (Legacy? - Confirmed).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">IT Org Structure & Key Contacts (CIO, HR Tech Lead)</span>
-                <div class="detail-value">Brett Craig (CIO). Key HR Tech contacts identified (Kerkvliet, Urs, Warner, etc.). Key Infra/Ops/Security leaders identified (Olson, Agostino, Kautt, Ostergaard, etc.).</div>
+                <div class="detail-value"><strong>Brett Craig</strong> (CIO). Key HR Tech contacts identified (<strong>Kerkvliet, Urs, Warner</strong>, etc.). Key Infra/Ops/Security leaders identified (<strong>Olson, Agostino, Kautt, Ostergaard</strong>, etc.).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Digital Transformation Maturity / Openness to AI</span>
@@ -508,7 +549,7 @@
             </div>
              <div class="detail-item">
                 <span class="detail-label">Key Integration Points & Potential Challenges</span>
-                <div class="detail-value">Workday integration is critical. Integrating with Degreed for learning recommendations. Potential complexity with Avature/SeekOut/Taleo phase-out? Scale, complexity of WFM/POS integration, data consistency.</div>
+                <div class="detail-value"><strong>Workday integration</strong> is critical. Integrating with <strong>Degreed</strong> for learning recommendations. Potential complexity with Avature/SeekOut/Taleo phase-out? Scale, complexity of WFM/POS integration, data consistency.</div>
             </div>
         </div>
     </section>
@@ -527,12 +568,12 @@
                 <span class="detail-label">Hypothesized Deeper Challenges</span>
                 <div class="detail-value">
                     <ul>
-                        <li>Frontline TA Bottleneck: Current stack struggling with scale/speed/quality.</li>
-                        <li>Store-to-Corporate Chasm: Lack of skills visibility/pathways across systems.</li>
-                        <li>Fragmented Skills Intelligence: Siloed data (Workday/Degreed/Avature).</li>
-                        <li>"Target Forward" Measurement Gap: Difficulty tracking equity goals at scale.</li>
-                        <li>Adoption Hurdles for Frontline: Engaging 350k+ hourly workers with potentially complex tools.</li>
-                        <li>Tech Stack Complexity: Managing multiple point solutions (Workday, Degreed, Avature, SeekOut, Taleo) vs. a unified platform.</li>
+                        <li><i class="fas fa-filter mr-2 text-red-500"></i><strong>Frontline TA Bottleneck:</strong> Current stack struggling with scale/speed/quality.</li>
+                        <li><i class="fas fa-bridge mr-2 text-red-500"></i><strong>Store-to-Corporate Chasm:</strong> Lack of skills visibility/pathways across systems.</li>
+                        <li><i class="fas fa-puzzle-piece mr-2 text-red-500"></i><strong>Fragmented Skills Intelligence:</strong> Siloed data (Workday/Degreed/Avature).</li>
+                        <li><i class="fas fa-balance-scale mr-2 text-red-500"></i><strong>"Target Forward" Measurement Gap:</strong> Difficulty tracking equity goals at scale.</li>
+                        <li><i class="fas fa-mobile-alt mr-2 text-red-500"></i><strong>Adoption Hurdles for Frontline:</strong> Engaging 350k+ hourly workers with potentially complex tools.</li>
+                        <li><i class="fas fa-project-diagram mr-2 text-red-500"></i><strong>Tech Stack Complexity:</strong> Managing multiple point solutions vs. a unified platform.</li>
                     </ul>
                 </div>
             </div>
@@ -545,13 +586,13 @@
 
     <section class="section-card">
         <header class="section-header">
-            <i class="fas fa-signal section-icon"></i>
+            <i class="fas fa-broadcast-tower section-icon"></i>
             <h3 class="section-title">9. Buying Intent & Engagement Signals</h3>
         </header>
         <div class="section-content">
             <div class="detail-item">
                 <span class="detail-label">Key Intent Topics Researched</span>
-                <div class="detail-value">Talent Management Software (Bombora signal Mar 9). Keyword research across various locations indicates broad interest in talent-related topics.</div>
+                <div class="detail-value"><strong>Talent Management Software</strong> (Bombora signal Mar 9). Keyword research across various locations indicates broad interest in talent-related topics.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Engagement Score / Buying Stage</span>
@@ -559,13 +600,13 @@
             </div>
              <div class="detail-item">
                 <span class="detail-label">Recent Website Activity / Content Downloads</span>
-                <div class="detail-value">Activity across Eightfold.ai domain (privacy policy, demo page, blog posts on AI/Bersin & Internal Mobility, contact page). Form fills for newsletter and content syndication by anonymous users and named contacts (Jenny Nicklay, Jordan Douglas, Kellie Peterson, Luke Wiersma).</div>
+                <div class="detail-value">Activity across Eightfold.ai domain (privacy policy, demo page, blog posts on AI/Bersin & Internal Mobility, contact page). Form fills for newsletter and content syndication by anonymous users and named contacts (<strong>Jenny Nicklay, Jordan Douglas, Kellie Peterson, Luke Wiersma</strong>).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Key Engaged Personas / Contacts & Recent Activity</span>
                 <div class="detail-value">
-                    <p>Significant engagement (email opens/replies, form fills, web visits) from Directors & Managers in HR (Allison Mannino, Erin Myers, Jennifer Navarro, Jordan Douglas, Kellie Peterson, Jenny Nicklay, Evelena Hillman). Some C-Level replies (Melissa Kremer, Amy Morrill). Event attendance/registration by PMs/Engineers.</p>
-                    <p><i>(Detailed list available in source file 'target last 30 days engagement.txt')</i></p>
+                    <p>Significant engagement (email opens/replies, form fills, web visits) from Directors & Managers in HR (<strong>Allison Mannino, Erin Myers, Jennifer Navarro, Jordan Douglas, Kellie Peterson, Jenny Nicklay, Evelena Hillman</strong>). Some C-Level replies (<strong>Melissa Kremer, Amy Morrill</strong>). Event attendance/registration by PMs/Engineers.</p>
+                    <p class="text-xs italic mt-2"><i>(Detailed list available in source file 'target last 30 days engagement.txt')</i></p>
                 </div>
             </div>
         </div>
@@ -599,7 +640,7 @@ graph TD
     CIO --> IT_Sec(VP IT Security<br/><i>Agostino / Kautt?</i><br/><b>Detractor?</b>);
     CIO --> IT_Infra(VP Infrastructure<br/><i>Ostergaard / O'kane?</i><br/><b>Influencer</b>);
 
-    style CEO fill:#e0e7ff,stroke:#333,stroke-width:2px;
+    style CEO fill:#e0e7ff,stroke:#111827,stroke-width:2px;
     style CHRO fill:#fee2e2,stroke:#991b1b,stroke-width:2px;
     style COO fill:#fee2e2,stroke:#991b1b,stroke-width:2px;
     style CIO fill:#fee2e2,stroke:#991b1b,stroke-width:2px;
@@ -669,8 +710,8 @@ graph TD
                         <li><strong>IT Security:</strong> Data privacy (PII handling), security posture, integration risks, compliance certifications.</li>
                         <li><strong>Procurement:</strong> Cost justification, contract terms, comparing vs. alternatives purely on price.</li>
                     </ul>
-                    <p><strong>Personalized Message Theme (HR Tech Example):</strong> "Eightfold acts as an essential AI intelligence layer that *maximizes* your Workday investment, providing proven, scalable capabilities Workday lacks for critical needs like frontline TA and potential-based mobility, all via robust, secure integrations."</p>
-                    <p><strong>How to Mitigate:</strong> Proactive engagement. For HR Tech: Demonstrate clear value *beyond* Workday, robust integration (Workday, Degreed), TCO benefits (potential consolidation). For Security: TRUST session, detailed security documentation. For Procurement: Strong ROI case, value focus, executive sponsorship.</p>
+                    <p><strong>Personalized Message Theme (HR Tech Example):</strong> "Eightfold acts as an essential AI intelligence layer that <strong>maximizes</strong> your Workday investment, providing proven, scalable capabilities Workday lacks for critical needs like frontline TA and potential-based mobility, all via robust, secure integrations."</p>
+                    <p><strong>How to Mitigate:</strong> Proactive engagement. For HR Tech: Demonstrate clear value <strong>beyond</strong> Workday, robust integration (Workday, Degreed), TCO benefits (potential consolidation). For Security: TRUST session, detailed security documentation. For Procurement: Strong ROI case, value focus, executive sponsorship.</p>
                 </div>
             </div>
 
@@ -698,9 +739,9 @@ graph TD
                 <span class="detail-label">Top 3-5 Business Problems Eightfold Addresses</span>
                 <div class="detail-value">
                      <ol class="list-decimal pl-5">
-                        <li>Frontline TA Inefficiency & High Turnover.</li>
-                        <li>Store-to-Corporate Mobility & DE&I Advancement Gap.</li>
-                        <li>Fragmented Skills Intelligence Hindering Upskilling (across Workday/Degreed/Avature).</li>
+                        <li><strong>Frontline TA Inefficiency & High Turnover.</strong></li>
+                        <li><strong>Store-to-Corporate Mobility & DE&I Advancement Gap.</strong></li>
+                        <li><strong>Fragmented Skills Intelligence Hindering Upskilling</strong> (across Workday/Degreed/Avature).</li>
                         <li>Competition for Critical Digital/Supply Chain Talent.</li>
                         <li>Difficulty Executing/Measuring "Target Forward" Talent Goals at Scale.</li>
                     </ol>
@@ -714,17 +755,17 @@ graph TD
                 <span class="detail-label">Needs-Solution Map Highlights</span>
                 <div class="detail-value">
                     <ul>
-                        <li>High-volume TA drag -> Eightfold TA Core + CE (AI Screening @ Scale, Mobile Apply).</li>
-                        <li>Store-to-Corp pathing gap -> Eightfold TM Core + TIP (Career Hub, Potential Matching).</li>
-                        <li>Critical Skills hiring (Digital/SCM) -> Eightfold TA Core + CRM (AI Sourcing/Matching).</li>
-                        <li>"Target Forward" equity execution -> Eightfold Platform (Fairness AI, DE&I Analytics).</li>
-                        <li>Fragmented skills data (Workday/Degreed/Avature) -> Eightfold TIP (Unified Skills Intelligence).</li>
+                        <li>High-volume TA drag -> <strong>Eightfold TA Core + CE</strong> (AI Screening @ Scale, Mobile Apply).</li>
+                        <li>Store-to-Corp pathing gap -> <strong>Eightfold TM Core + TIP</strong> (Career Hub, Potential Matching).</li>
+                        <li>Critical Skills hiring (Digital/SCM) -> <strong>Eightfold TA Core + CRM</strong> (AI Sourcing/Matching).</li>
+                        <li>"Target Forward" equity execution -> <strong>Eightfold Platform</strong> (Fairness AI, DE&I Analytics).</li>
+                        <li>Fragmented skills data (Workday/Degreed/Avature) -> <strong>Eightfold TIP</strong> (Unified Skills Intelligence).</li>
                     </ul>
                 </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Eightfold Differentiators Most Relevant to Account</span>
-                <div class="detail-value">AI Optimized for Retail Scale; Store-to-Corporate Potential Matching; Unified Platform (TA+TM+Skills); Fairness by Design; Workday/Degreed Intelligence Layer.</div>
+                <div class="detail-value"><strong>AI Optimized for Retail Scale; Store-to-Corporate Potential Matching; Unified Platform (TA+TM+Skills); Fairness by Design; Workday/Degreed Intelligence Layer.</strong></div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Primary Opportunity Hypothesis (Refined)</span>
@@ -732,7 +773,7 @@ graph TD
             </div>
              <div class="detail-item">
                 <span class="detail-label">Recommended Strategic Goal for Eightfold Engagement</span>
-                <div class="detail-value">Establish Eightfold as the essential Talent Intelligence partner for Target, proving value initially by transforming high-volume TA efficiency and demonstrably enabling store-to-corporate career pathways, directly supporting operational goals and the "Target Forward" agenda.</div>
+                <div class="detail-value">Establish Eightfold as the <strong>essential Talent Intelligence partner</strong> for Target, proving value initially by transforming high-volume TA efficiency and demonstrably enabling store-to-corporate career pathways, directly supporting operational goals and the "Target Forward" agenda.</div>
             </div>
         </div>
     </section>
@@ -749,22 +790,22 @@ graph TD
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Overall Tailored Value Statement</span>
-                <div class="detail-value">Eightfold provides Target the unified Talent Intelligence platform to optimize its ~415k workforce, accelerate its omnichannel strategy, and deliver on "Target Forward" goals by dramatically improving frontline TA efficiency, unlocking store-to-corporate mobility, acquiring critical digital skills, and providing holistic insights complementary to Workday and Degreed.</div>
+                <div class="detail-value">Eightfold provides Target the <strong>unified Talent Intelligence platform</strong> to optimize its ~415k workforce, accelerate its omnichannel strategy, and deliver on "Target Forward" goals by dramatically improving frontline TA efficiency, unlocking store-to-corporate mobility, acquiring critical digital skills, and providing holistic insights complementary to Workday and Degreed.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Talking Points: Alignment with Strategic Imperatives</span>
                 <div class="detail-value">
                     <ul>
-                        <li>Omnichannel/Store-as-Hub: "Ensure your ~2000 stores are staffed effectively for peak guest experience and fulfillment efficiency by cutting frontline TTH by X% and reducing early turnover with AI-driven hiring."</li>
-                        <li>Target Forward (Equity): "Create genuine, scalable pathways from store roles to corporate leadership using AI that sees potential beyond resumes, directly supporting your equitable advancement goals."</li>
-                        <li>Target Forward (Well-being): "Improve team member retention by providing clear internal career growth visibility and opportunities within the Target ecosystem."</li>
-                        <li>Digital Growth/Capabilities: "Accelerate your digital and supply chain talent strategy by finding scarce external talent faster and identifying internal team members with the potential to be upskilled via deep skills intelligence across Workday and Degreed."</li>
+                        <li><strong>Omnichannel/Store-as-Hub:</strong> "Ensure your ~2000 stores are staffed effectively for peak guest experience and fulfillment efficiency by cutting frontline TTH by X% and reducing early turnover with AI-driven hiring."</li>
+                        <li><strong>Target Forward (Equity):</strong> "Create genuine, scalable pathways from store roles to corporate leadership using AI that sees potential beyond resumes, directly supporting your equitable advancement goals."</li>
+                        <li><strong>Target Forward (Well-being):</strong> "Improve team member retention by providing clear internal career growth visibility and opportunities within the Target ecosystem."</li>
+                        <li><strong>Digital Growth/Capabilities:</strong> "Accelerate your digital and supply chain talent strategy by finding scarce external talent faster and identifying internal team members with the potential to be upskilled via deep skills intelligence across Workday and Degreed."</li>
                      </ul>
                 </div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Talking Points: Addressing Financial Pressures/ROI</span>
-                <div class="detail-value">"Reduce the significant operational and financial drag of frontline turnover (likely $XXXM+ annually) and inefficient high-volume hiring through AI automation and improved retention via internal mobility."</div>
+                <div class="detail-value">"Reduce the significant operational and financial drag of <strong>frontline turnover (likely $XXXM+ annually)</strong> and inefficient high-volume hiring through AI automation and improved retention via internal mobility."</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Talking Points: Addressing Hypothesized Pains</span>
@@ -772,11 +813,11 @@ graph TD
             </div>
              <div class="detail-item">
                 <span class="detail-label">Talking Points: Why Eightfold (Unique Fit)</span>
-                 <div class="detail-value">AI Optimized for Retail Scale; Store-to-Corporate Potential Matching; Unified Platform (TA+TM+Skills) integrating Workday/Degreed; Fairness by Design; Proven ROI in complex retail environments.</div>
+                 <div class="detail-value"><strong>AI Optimized for Retail Scale; Store-to-Corporate Potential Matching; Unified Platform (TA+TM+Skills)</strong> integrating Workday/Degreed; <strong>Fairness by Design; Proven ROI</strong> in complex retail environments.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Talking Points: Why Now (Urgency Creation)</span>
-                <div class="detail-value">"The cost of frontline inefficiency/turnover accumulates daily. Achieving 'Target Forward' equity goals requires scalable solutions now. Competitors are investing heavily in AI talent tech. Delays impact revenue and strategic timelines."</div>
+                <div class="detail-value">"The cost of frontline inefficiency/turnover accumulates daily. Achieving 'Target Forward' equity goals requires scalable solutions <strong>now</strong>. Competitors are investing heavily in AI talent tech. Delays impact revenue and strategic timelines."</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Potential ROI Levers & Estimated Impact</span>
@@ -786,11 +827,11 @@ graph TD
                 <span class="detail-label">Guidance on Handling Likely Objections</span>
                 <div class="detail-value">
                     <ul>
-                        <li>Cost/Budget: Focus ROI on massive frontline efficiency/turnover reduction. Frame as strategic enabler.</li>
-                        <li>Workday Sufficiency: Position as essential intelligence layer *enhancing* Workday & Degreed; highlight unique AI/scale capabilities.</li>
-                        <li>Integration: Detail robust Workday/Degreed connectors, retail references.</li>
-                        <li>Change Management: Propose phased rollout, partner expertise, focus on intuitive UX for stores.</li>
-                        <li>Existing Tools (Avature/SeekOut): Position Eightfold as a unified platform potentially consolidating functions and providing deeper intelligence.</li>
+                        <li><strong>Cost/Budget:</strong> Focus ROI on massive frontline efficiency/turnover reduction. Frame as strategic enabler.</li>
+                        <li><strong>Workday Sufficiency:</strong> Position as essential intelligence layer <strong>enhancing</strong> Workday & Degreed; highlight unique AI/scale capabilities.</li>
+                        <li><strong>Integration:</strong> Detail robust Workday/Degreed connectors, retail references.</li>
+                        <li><strong>Change Management:</strong> Propose phased rollout, partner expertise, focus on intuitive UX for stores.</li>
+                        <li><strong>Existing Tools (Avature/SeekOut):</strong> Position Eightfold as a unifying platform potentially consolidating functions and providing deeper intelligence.</li>
                     </ul>
                 </div>
             </div>
@@ -805,7 +846,7 @@ graph TD
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Likely Primary Competitors</span>
-                <div class="detail-value">Workday Native Modules, High-Volume TA Specialists (e.g., Paradox, Phenom, iCIMS), potentially TM/Marketplace vendors (e.g., Gloat), Incumbent point solutions (Avature, SeekOut, Taleo).</div>
+                <div class="detail-value"><strong>Workday Native Modules</strong>, High-Volume TA Specialists (e.g., Paradox, Phenom, iCIMS), potentially TM/Marketplace vendors (e.g., Gloat), Incumbent point solutions (<strong>Avature, SeekOut, Taleo</strong>).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Eightfold Positioning vs. Competitors</span>
@@ -818,7 +859,7 @@ graph TD
             </div>
              <div class="detail-item">
                 <span class="detail-label">Key Landmine Questions for Discovery</span>
-                <div class="detail-value">"How does Workday/Avature help identify store associates ready for corporate roles based on *potential*?" "How do you ensure efficient *and* equitable screening across millions of frontline applications today?" "Can you get a single view of critical skill gaps combining Workday, Degreed, and Avature data?" "How much are you spending managing multiple point solutions (Workday, Degreed, Avature, SeekOut, Taleo) vs. the potential of a unified platform?"</div>
+                <div class="detail-value">"How does Workday/Avature help identify store associates ready for corporate roles based on <strong>potential</strong>?" "How do you ensure efficient <strong>and</strong> equitable screening across millions of frontline applications today?" "Can you get a <strong>single view</strong> of critical skill gaps combining Workday, Degreed, and Avature data?" "How much are you spending managing multiple point solutions (Workday, Degreed, Avature, SeekOut, Taleo) vs. the potential of a unified platform?"</div>
             </div>
         </div>
     </section>
@@ -831,7 +872,7 @@ graph TD
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Identified/Potential Key Partners (SI, Advisory)</span>
-                <div class="detail-value">Likely major GSI with Workday, Retail, large-scale transformation experience (Accenture, Deloitte?). Target likely has preferred SIs.</div>
+                <div class="detail-value">Likely major GSI with Workday, Retail, large-scale transformation experience (<strong>Accenture, Deloitte?</strong>). Target likely has preferred SIs.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Recommended Partner Engagement Actions</span>
@@ -848,7 +889,7 @@ graph TD
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Recommended Overall Engagement Strategy</span>
-                <div class="detail-value">Multi-pronged: Top-Down (CHRO), Operational (COO), Functional (VP TA/TM), Technical (CIO/HR Tech). Lead with Frontline TA transformation linked to Store-to-Corp mobility & "Target Forward".</div>
+                <div class="detail-value"><strong>Multi-pronged:</strong> Top-Down (CHRO), Operational (COO), Functional (VP TA/TM), Technical (CIO/HR Tech). Lead with Frontline TA transformation linked to Store-to-Corp mobility & "Target Forward".</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Leveraging Intent/Engagement Signals</span>
@@ -864,7 +905,7 @@ graph TD
             </div>
              <div class="detail-item">
                 <span class="detail-label">Proposed Conceptual Phased Rollout / Pilot Focus</span>
-                <div class="detail-value">Phase 1 Pilot: High-volume TA (1-2 regions/DCs) OR Store-to-Corp Mobility (1 function + feeder district). Focus on proving value quickly against baseline.</div>
+                <div class="detail-value">Phase 1 Pilot: <strong>High-volume TA</strong> (1-2 regions/DCs) OR <strong>Store-to-Corp Mobility</strong> (1 function + feeder district). Focus on proving value quickly against baseline.</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Critical Next Steps</span>
@@ -914,7 +955,7 @@ graph TD
             </div>
              <div class="detail-item">
                 <span class="detail-label">Internal Eightfold Deal Metrics</span>
-                <div class="detail-value">Target ACV: $2M+ (Est.), Target TCV: $6M+ (Est. 3yr), Target Close Date: Q1 FY26, Products: TIP, TA (Core, CE, CRM), TM (Core, Leader XP).</div>
+                <div class="detail-value">Target ACV: <strong>$2M+</strong> (Est.), Target TCV: <strong>$6M+</strong> (Est. 3yr), Target Close Date: <strong>Q1 FY26</strong>, Products: <strong>TIP, TA (Core, CE, CRM), TM (Core, Leader XP)</strong>.</div>
             </div>
         </div>
     </section>
@@ -927,7 +968,7 @@ graph TD
         <div class="section-content">
              <div class="detail-item">
                 <span class="detail-label">Recommended Eightfold Team</span>
-                <div class="detail-value">AE: Katie Mavromatis, Lead SC (Retail/Workday/Degreed Exp.), Lead SA (Workday/Degreed Exp.), Value Consultant, Retail SME, Exec Sponsor (SVP+), CSM Lead (Engage early).</div>
+                <div class="detail-value">AE: <strong>Katie Mavromatis</strong>, Lead SC (Retail/Workday/Degreed Exp.), Lead SA (Workday/Degreed Exp.), Value Consultant, Retail SME, Exec Sponsor (SVP+), CSM Lead (Engage early).</div>
             </div>
              <div class="detail-item">
                 <span class="detail-label">Potential Partner Resources Needed</span>
@@ -985,7 +1026,7 @@ graph TD
         <div class="section-content missing-elements">
             <p>While this plan incorporates significant detail, achieving a "perfect" plan requires ongoing validation and refinement through direct engagement. Key areas potentially missing or needing deeper discovery include:</p>
             <ul>
-                <li><strong>Specific Quantified Metrics:</strong> While ROI levers are identified, the plan needs specific, agreed-upon target metrics (e.g., "Reduce frontline TTH by 25% within 12 months of rollout, saving an estimated $X million annually"). This requires collaborative work with Target using their baseline data.</li>
+                <li><strong>Specific Quantified Metrics:</strong> While ROI levers are identified, the plan needs specific, agreed-upon target metrics (e.g., "Reduce frontline TTH by <strong>25%</strong> within 12 months of rollout, saving an estimated <strong>$X million</strong> annually"). This requires collaborative work with Target using their baseline data.</li>
                 <li><strong>Detailed Decision Criteria:</strong> What specific technical, functional, and commercial criteria will Target use to formally evaluate Eightfold against competitors (including Workday)? Understanding their weighting is crucial.</li>
                 <li><strong>Procurement & Legal Process ("Paper Process"):</strong> What are Target's exact steps, timelines, and key internal contacts for reviewing and approving MSAs, DPAs, SOWs, and issuing POs? Are there standard terms they typically push for?</li>
                 <li><strong>Target-Side Resource Commitment:</strong> What specific personnel (names, roles, time commitment) will Target need to dedicate for a successful implementation (Project Manager, HR Tech Lead, Functional SMEs, Change Lead, Trainers)?</li>
